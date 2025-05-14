@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>青秀区签证中心</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2589ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="青秀区签证">
+    <!-- 微信分享设置 -->
+    <meta property="og:title" content="青秀区签证中心">
+    <meta property="og:description" content="欢迎来到西南曼哈顿・南宁城市中心">
+    <meta property="og:image" content="./images/Background_nanning.png">
+    <script src="wechat-config.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            position: relative;
+            color: white;
+            overflow: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./images/Background_nanning.png');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.8);
+            z-index: -2;
+        }
+        
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%);
+            z-index: -1;
+        }
+        
+        .ios-status-bar {
+            height: 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 14px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .status-bar-time {
+            font-weight: bold;
+        }
+        
+        .status-bar-icons {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: calc(100vh - 44px);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 20vh;
+        }
+        
+        .title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+        
+        .start-btn {
+            background-color: #2589ff;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 15px 0;
+            width: 80%;
+            max-width: 300px;
+            border-radius: 30px;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .start-btn:active {
+            background-color: #1a7ae6;
+            transform: scale(0.98);
+        }
+        
+        .register-text {
+            font-size: 0.8rem;
+            cursor: pointer;
+            margin-top: 0.8rem;
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+        
+        .footer {
+            text-align: center;
+            padding-bottom: 20px;
+            width: 100%;
+        }
+        
+        .footer-text {
+            font-size: 0.8rem;
+            margin-bottom: 0.3rem;
+            opacity: 0.8;
+        }
+
+        /* 微信小程序兼容性样式 */
+        @supports (top: env(safe-area-inset-top)) {
+            body {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ios-status-bar">
+        <div class="status-bar-time">10:50</div>
+        <div class="status-bar-icons">
+            <span>5G</span>
+            <span>100%</span>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <div class="content">
+            <h1 class="title">青秀区签证中心</h1>
+            <p class="subtitle">欢迎来到西南曼哈顿・南宁城市中心</p>
+        </div>
+        
+        <div class="button-container">
+            <a href="name.html" class="start-btn">开始申请签证</a>
+        </div>
+        
+        <div class="footer">
+            <p class="footer-text">青秀区虚拟旅游局：赛博签证中心</p>
+            <p class="footer-text">赛博青秀虚拟旅游局：仅供娱乐</p>
+        </div>
+    </div>
+
+    <script>
+        // 更新状态栏时间
+        function updateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            document.querySelector('.status-bar-time').textContent = `${hours}:${minutes}`;
+        }
+        
+        // 初始化时间并每分钟更新
+        updateTime();
+        setInterval(updateTime, 60000);
+        
+        // 注册 Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+        
+        // 微信环境检测
+        function isWeixinBrowser() {
+            return /MicroMessenger/i.test(navigator.userAgent);
+        }
+        
+        // 如果在微信环境中，添加微信相关配置
+        if (isWeixinBrowser()) {
+            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+                // 微信环境下的特殊处理
+                // 例如：隐藏右上角菜单
+                if (typeof WeixinJSBridge !== 'undefined') {
+                    WeixinJSBridge.call('hideOptionMenu');
+                }
+            });
+        }
+        
+        // 配置微信分享
+        if (typeof configWechat === 'function') {
+            configWechat({
+                title: '青秀区签证中心',
+                desc: '欢迎来到西南曼哈顿・南宁城市中心',
+                imgUrl: './images/Background_nanning.png'
+            });
+        }
+    </script>
+</body>
+</html> 

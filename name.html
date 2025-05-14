@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>青秀区签证</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#7e3ba1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="青秀区签证">
+    <!-- 微信分享设置 -->
+    <meta property="og:title" content="青秀区签证中心">
+    <meta property="og:description" content="请输入您的姓名，获取专属签证">
+    <meta property="og:image" content="./images/Background_nanning.png">
+    <script src="wechat-config.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #7e3ba1 0%, #d04b85 100%);
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .ios-status-bar {
+            height: 44px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 14px;
+        }
+        
+        .status-bar-time {
+            font-weight: bold;
+        }
+        
+        .status-bar-icons {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .main-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .form-card {
+            width: 80%;
+            max-width: 320px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .form-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .form-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .form-input {
+            width: calc(100% - 30px);
+            padding: 12px 15px;
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+            outline: none;
+            background: white;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .submit-btn {
+            width: 120px;
+            background: #2196f3;
+            color: white;
+            font-weight: normal;
+            font-size: 14px;
+            padding: 10px 0;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:active {
+            transform: scale(0.98);
+            background: #1a86e0;
+        }
+
+        /* 微信小程序兼容性样式 */
+        @supports (top: env(safe-area-inset-top)) {
+            body {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ios-status-bar">
+        <div class="status-bar-time">11:05</div>
+        <div class="status-bar-icons">
+            <span>5G</span>
+            <span>100%</span>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <div class="form-card">
+            <h1 class="form-title">请输入您的姓名</h1>
+            <p class="form-subtitle">您的个人专属签证即将生成</p>
+            
+            <form>
+                <input type="text" id="name" class="form-input" placeholder="请输入您的姓名" required>
+                
+                <button type="button" class="submit-btn" onclick="saveNameAndRedirect()">
+                    继续
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // 更新状态栏时间
+        function updateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            document.querySelector('.status-bar-time').textContent = `${hours}:${minutes}`;
+        }
+        
+        // 初始化时间并每分钟更新
+        updateTime();
+        setInterval(updateTime, 60000);
+        
+        function saveNameAndRedirect() {
+            const nameInput = document.getElementById('name');
+            const name = nameInput.value.trim();
+            
+            if (name) {
+                // 保存用户名到localStorage
+                localStorage.setItem('visaHolderName', name);
+                // 跳转到答题页面
+                window.location.href = 'question.html';
+            } else {
+                // 如果用户没有输入姓名，显示提示
+                nameInput.style.borderColor = '#ff3860';
+                alert('请输入您的姓名');
+            }
+        }
+        
+        // 注册 Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+        
+        // 微信环境检测
+        function isWeixinBrowser() {
+            return /MicroMessenger/i.test(navigator.userAgent);
+        }
+        
+        // 如果在微信环境中，添加微信相关配置
+        if (isWeixinBrowser()) {
+            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+                // 微信环境下的特殊处理
+                if (typeof WeixinJSBridge !== 'undefined') {
+                    WeixinJSBridge.call('hideOptionMenu');
+                }
+            });
+        }
+        
+        // 配置微信分享
+        if (typeof configWechat === 'function') {
+            configWechat({
+                title: '青秀区签证中心',
+                desc: '请输入您的姓名，获取专属签证',
+                imgUrl: './images/Background_nanning.png'
+            });
+        }
+    </script>
+</body>
+</html> 

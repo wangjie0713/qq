@@ -1,0 +1,392 @@
+[
+  {
+    "id": 1,
+    "question": "青秀区是南宁市的哪个方位?",
+    "options": [
+      {
+        "text": "东南方",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "西南方",
+        "isCorrect": false,
+        "explanation": "青秀区位于南宁市的东南方，不是西南方"
+      },
+      {
+        "text": "东北方",
+        "isCorrect": false,
+        "explanation": "青秀区位于南宁市的东南方，不是东北方"
+      },
+      {
+        "text": "西北方",
+        "isCorrect": false,
+        "explanation": "青秀区位于南宁市的东南方，不是西北方"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "青秀区的标志性建筑是什么?",
+    "options": [
+      {
+        "text": "民歌湖",
+        "isCorrect": false,
+        "explanation": "青秀区的标志性建筑是青秀山，而非民歌湖"
+      },
+      {
+        "text": "南湖公园",
+        "isCorrect": false,
+        "explanation": "青秀区的标志性建筑是青秀山，而非南湖公园"
+      },
+      {
+        "text": "青秀山",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "五象湖",
+        "isCorrect": false,
+        "explanation": "青秀区的标志性建筑是青秀山，而非五象湖"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "青秀区的区花是什么?",
+    "options": [
+      {
+        "text": "木棉花",
+        "isCorrect": false,
+        "explanation": "青秀区的区花是荷花，不是木棉花"
+      },
+      {
+        "text": "荷花",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "玉兰花",
+        "isCorrect": false,
+        "explanation": "青秀区的区花是荷花，不是玉兰花"
+      },
+      {
+        "text": "紫荆花",
+        "isCorrect": false,
+        "explanation": "青秀区的区花是荷花，不是紫荆花"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "青秀区有哪个著名的山?",
+    "options": [
+      {
+        "text": "青秀山",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "凤凰山",
+        "isCorrect": false,
+        "explanation": "青秀区有著名的青秀山，不是凤凰山"
+      },
+      {
+        "text": "大明山",
+        "isCorrect": false,
+        "explanation": "青秀区有著名的青秀山，不是大明山"
+      },
+      {
+        "text": "龙虎山",
+        "isCorrect": false,
+        "explanation": "青秀区有著名的青秀山，不是龙虎山"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "青秀区是否是南宁市的中心城区?",
+    "options": [
+      {
+        "text": "是",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "否",
+        "isCorrect": false,
+        "explanation": "青秀区是南宁市的中心城区之一"
+      },
+      {
+        "text": "部分是",
+        "isCorrect": false,
+        "explanation": "青秀区整体被认为是南宁市的中心城区"
+      },
+      {
+        "text": "不确定",
+        "isCorrect": false,
+        "explanation": "青秀区确实是南宁市的中心城区"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "青秀区的成立时间是哪一年?",
+    "options": [
+      {
+        "text": "1997年",
+        "isCorrect": false,
+        "explanation": "青秀区成立于2004年，不是1997年"
+      },
+      {
+        "text": "2000年",
+        "isCorrect": false,
+        "explanation": "青秀区成立于2004年，不是2000年"
+      },
+      {
+        "text": "2004年",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "2010年",
+        "isCorrect": false,
+        "explanation": "青秀区成立于2004年，不是2010年"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "question": "青秀区有多少个街道办事处?",
+    "options": [
+      {
+        "text": "5个",
+        "isCorrect": false,
+        "explanation": "青秀区有7个街道办事处，不是5个"
+      },
+      {
+        "text": "6个",
+        "isCorrect": false,
+        "explanation": "青秀区有7个街道办事处，不是6个"
+      },
+      {
+        "text": "7个",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "8个",
+        "isCorrect": false,
+        "explanation": "青秀区有7个街道办事处，不是8个"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "青秀区的面积约为多少平方公里?",
+    "options": [
+      {
+        "text": "约374平方公里",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "约420平方公里",
+        "isCorrect": false,
+        "explanation": "青秀区面积约为374平方公里，不是420平方公里"
+      },
+      {
+        "text": "约290平方公里",
+        "isCorrect": false,
+        "explanation": "青秀区面积约为374平方公里，不是290平方公里"
+      },
+      {
+        "text": "约510平方公里",
+        "isCorrect": false,
+        "explanation": "青秀区面积约为374平方公里，不是510平方公里"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "question": "青秀区的区政府驻地在哪里?",
+    "options": [
+      {
+        "text": "建政路",
+        "isCorrect": false,
+        "explanation": "青秀区区政府驻地在湖南路，不是建政路"
+      },
+      {
+        "text": "民族大道",
+        "isCorrect": false,
+        "explanation": "青秀区区政府驻地在湖南路，不是民族大道"
+      },
+      {
+        "text": "湖南路",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "青山路",
+        "isCorrect": false,
+        "explanation": "青秀区区政府驻地在湖南路，不是青山路"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "question": "南宁市博物馆位于青秀区的哪个地方?",
+    "options": [
+      {
+        "text": "民族大道",
+        "isCorrect": false,
+        "explanation": "南宁市博物馆位于青秀区建政路，不是民族大道"
+      },
+      {
+        "text": "建政路",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "东葛路",
+        "isCorrect": false,
+        "explanation": "南宁市博物馆位于青秀区建政路，不是东葛路"
+      },
+      {
+        "text": "凤岭北路",
+        "isCorrect": false,
+        "explanation": "南宁市博物馆位于青秀区建政路，不是凤岭北路"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "question": "青秀区的经济以什么产业为主?",
+    "options": [
+      {
+        "text": "农业",
+        "isCorrect": false,
+        "explanation": "青秀区经济以现代服务业为主，不是农业"
+      },
+      {
+        "text": "制造业",
+        "isCorrect": false,
+        "explanation": "青秀区经济以现代服务业为主，不是制造业"
+      },
+      {
+        "text": "现代服务业",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "矿产业",
+        "isCorrect": false,
+        "explanation": "青秀区经济以现代服务业为主，不是矿产业"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "question": "青秀区内有哪个著名的人工湖?",
+    "options": [
+      {
+        "text": "南湖",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "民歌湖",
+        "isCorrect": false,
+        "explanation": "青秀区内的著名人工湖是南湖，不是民歌湖"
+      },
+      {
+        "text": "邕江湖",
+        "isCorrect": false,
+        "explanation": "青秀区内的著名人工湖是南湖，邕江是河流不是湖"
+      },
+      {
+        "text": "五象湖",
+        "isCorrect": false,
+        "explanation": "青秀区内的著名人工湖是南湖，不是五象湖"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "question": "青秀区的哪个公园被誉为"南宁市的绿肺"?",
+    "options": [
+      {
+        "text": "人民公园",
+        "isCorrect": false,
+        "explanation": "青秀山被誉为"南宁市的绿肺"，不是人民公园"
+      },
+      {
+        "text": "南湖公园",
+        "isCorrect": false,
+        "explanation": "青秀山被誉为"南宁市的绿肺"，不是南湖公园"
+      },
+      {
+        "text": "青秀山",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "凤凰公园",
+        "isCorrect": false,
+        "explanation": "青秀山被誉为"南宁市的绿肺"，不是凤凰公园"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "question": "青秀区地铁有几条线路经过?",
+    "options": [
+      {
+        "text": "1条",
+        "isCorrect": false,
+        "explanation": "青秀区有多条地铁线路经过，不只1条"
+      },
+      {
+        "text": "2条",
+        "isCorrect": false,
+        "explanation": "青秀区有多条地铁线路经过，不只2条"
+      },
+      {
+        "text": "3条",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "4条",
+        "isCorrect": false,
+        "explanation": "青秀区目前有3条地铁线路经过，不是4条"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "question": "青秀区的邕江上有几座大桥连接两岸?",
+    "options": [
+      {
+        "text": "3座",
+        "isCorrect": false,
+        "explanation": "青秀区邕江上有4座大桥连接两岸，不是3座"
+      },
+      {
+        "text": "4座",
+        "isCorrect": true,
+        "explanation": ""
+      },
+      {
+        "text": "5座",
+        "isCorrect": false,
+        "explanation": "青秀区邕江上有4座大桥连接两岸，不是5座"
+      },
+      {
+        "text": "6座",
+        "isCorrect": false,
+        "explanation": "青秀区邕江上有4座大桥连接两岸，不是6座"
+      }
+    ]
+  }
+]

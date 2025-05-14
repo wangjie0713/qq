@@ -1,0 +1,21 @@
+{
+  "name": "青秀区签证中心",
+  "short_name": "青秀区签证",
+  "description": "青秀区虚拟旅游局签证申请系统",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#2589ff",
+  "theme_color": "#2589ff",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 

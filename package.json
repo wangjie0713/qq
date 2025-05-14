@@ -1,0 +1,19 @@
+{
+  "name": "qingxiu-visa",
+  "version": "1.0.0",
+  "description": "青秀区签证中心H5应用",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "h5",
+    "visa",
+    "qingxiu"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+} 

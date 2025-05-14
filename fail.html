@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>青秀区签证 - 失败</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff5e62">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="青秀区签证">
+    <!-- 微信分享设置 -->
+    <meta property="og:title" content="青秀区签证 - 失败">
+    <meta property="og:description" content="我的青秀区签证申请被拒绝了，快来试试吧！">
+    <meta property="og:image" content="./images/Background_nanning.png">
+    <script src="wechat-config.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .ios-status-bar {
+            height: 44px;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 14px;
+        }
+        
+        .status-bar-time {
+            font-weight: bold;
+        }
+        
+        .status-bar-icons {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .main-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .fail-icon {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .fail-icon i {
+            font-size: 40px;
+            color: #ff5e62;
+        }
+        
+        .fail-title {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .fail-message {
+            color: rgba(255,255,255,0.9);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+            max-width: 300px;
+        }
+        
+        .fail-card {
+            width: 100%;
+            max-width: 320px;
+            background-color: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .fail-card-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .fail-card-title i {
+            margin-right: 10px;
+            color: #ff5e62;
+        }
+        
+        .error-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .error-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .error-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .error-number {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #ff5e62;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .error-content {
+            flex: 1;
+        }
+        
+        .error-question {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .error-answer {
+            color: #777;
+            font-size: 13px;
+        }
+        
+        .error-answer span {
+            color: #ff5e62;
+            font-weight: 500;
+        }
+        
+        .retry-btn {
+            background-color: white;
+            color: #ff5e62;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 15px 40px;
+            border-radius: 30px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .retry-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .retry-btn i {
+            margin-right: 10px;
+        }
+        
+        .stamp-denied {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-20deg);
+            width: 200px;
+            height: 60px;
+            border: 5px solid rgba(255, 94, 98, 0.7);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgba(255, 94, 98, 0.8);
+            font-weight: bold;
+            font-size: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            pointer-events: none;
+            opacity: 0.9;
+            z-index: 10;
+        }
+        
+        /* 微信小程序兼容性样式 */
+        @supports (top: env(safe-area-inset-top)) {
+            body {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ios-status-bar">
+        <div class="status-bar-time">20:47</div>
+        <div class="status-bar-icons">
+            <span>5G</span>
+            <span>100%</span>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <div class="fail-icon">
+            <i class="fas fa-times"></i>
+        </div>
+        <h1 class="fail-title">签证申请失败</h1>
+        <p class="fail-message">很抱歉，您的青秀区签证申请被拒绝</p>
+        
+        <div class="fail-card">
+            <div class="stamp-denied">已拒绝</div>
+            
+            <div class="fail-card-title">
+                <i class="fas fa-exclamation-triangle"></i>
+                拒绝原因
+            </div>
+            
+            <div class="error-content" style="padding: 10px;">
+                <div id="rejection-reason" style="font-size: 14px; color: #333; line-height: 1.5;">
+                    加载拒绝原因中...
+                </div>
+            </div>
+        </div>
+        
+        <button class="retry-btn" onclick="retryTest()">
+            <i class="fas fa-redo-alt"></i>
+            重新申请
+        </button>
+    </div>
+    
+    <script>
+        // 更新状态栏时间
+        function updateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            document.querySelector('.status-bar-time').textContent = `${hours}:${minutes}`;
+        }
+        
+        // 初始化时间并每分钟更新
+        updateTime();
+        setInterval(updateTime, 60000);
+        
+        // 重新测试
+        function retryTest() {
+            // 重置得分和拒绝原因
+            localStorage.removeItem('visaScore');
+            localStorage.removeItem('visaTotalQuestions');
+            localStorage.removeItem('visaRejectionReason');
+            
+            // 返回答题页面
+            window.location.href = './question.html';
+        }
+        
+        // 页面加载完成
+        window.onload = function() {
+            // 从localStorage获取拒绝原因
+            const rejectionReason = localStorage.getItem('visaRejectionReason');
+            const rejectionElement = document.getElementById('rejection-reason');
+            
+            if (rejectionReason && rejectionReason.trim() !== '') {
+                rejectionElement.textContent = rejectionReason;
+            } else {
+                rejectionElement.textContent = '您对青秀区了解不够深入，建议多了解青秀区的文化特色和地标景点。';
+            }
+            
+            // 注册 Service Worker
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            }
+            
+            // 配置微信分享
+            if (typeof configWechat === 'function') {
+                configWechat({
+                    title: '青秀区签证申请被拒绝',
+                    desc: '我的青秀区签证申请未通过，快来挑战看看你的表现！',
+                    imgUrl: './images/Background_nanning.png'
+                });
+            }
+        };
+    </script>
+</body>
+</html> 

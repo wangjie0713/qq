@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>青秀区签证 - 答题</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2589ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="青秀区签证">
+    <!-- 微信分享设置 -->
+    <meta property="og:title" content="青秀区签证 - 答题">
+    <meta property="og:description" content="完成答题获取您的专属签证">
+    <meta property="og:image" content="./images/Background_nanning.png">
+    <script src="wechat-config.js"></script>
+    <!-- 引入嵌入式题库 -->
+    <script src="questions-embed.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f5;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .ios-status-bar {
+            height: 44px;
+            background-color: #2575fc;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 14px;
+        }
+        
+        .status-bar-time {
+            font-weight: bold;
+        }
+        
+        .status-bar-icons {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .header {
+            background-color: #2589ff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 3px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 40%;
+            background-color: white;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        
+        .question-container {
+            padding: 30px 20px;
+            background-color: white;
+            border-radius: 20px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .question-number {
+            color: #2589ff;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .question-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            line-height: 1.4;
+            color: #333;
+        }
+        
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .option {
+            padding: 16px 20px;
+            border: 2px solid #e6e6e6;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .option.selected {
+            border-color: #2589ff;
+            background-color: rgba(37, 137, 255, 0.05);
+        }
+        
+        .option.selected .option-letter {
+            background-color: #2589ff;
+            color: white;
+        }
+        
+        .option-letter {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: #666;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .option:active .option-letter {
+            background-color: #2589ff;
+            color: white;
+        }
+        
+        .option-text {
+            font-size: 1rem;
+            color: #333;
+        }
+        
+        .info-text {
+            color: #666;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 80%;
+            max-width: 300px;
+            background-color: #2589ff;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 15px 0;
+            border-radius: 30px;
+            margin: 30px auto 0;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .submit-btn:active {
+            background-color: #1a7ae6;
+            transform: translateY(2px);
+        }
+        
+        /* 微信小程序兼容性样式 */
+        @supports (top: env(safe-area-inset-top)) {
+            body {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ios-status-bar">
+        <div class="status-bar-time">20:43</div>
+        <div class="status-bar-icons">
+            <span>5G</span>
+            <span>100%</span>
+        </div>
+    </div>
+    
+    <div class="header">
+        <h1 class="text-xl font-bold">青秀区签证问答</h1>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </div>
+    
+    <div class="question-container" id="question-container">
+        <div class="question-number" id="question-number">问题 1/5</div>
+        <div class="question-text" id="question-text">加载中...</div>
+        
+        <div class="options-container" id="options-container">
+            <!-- 选项将动态加载 -->
+        </div>
+        
+        <div class="info-text" id="info-text">
+            请选择一个选项
+        </div>
+        
+        <button class="submit-btn" id="submit-btn" onclick="submitAnswer()">
+            提交答案
+        </button>
+    </div>
+    
+    <script>
+        // 更新状态栏时间
+        function updateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            document.querySelector('.status-bar-time').textContent = `${hours}:${minutes}`;
+        }
+        
+        // 初始化时间并每分钟更新
+        updateTime();
+        setInterval(updateTime, 60000);
+        
+        // 全局变量
+        let allQuestions = []; // 所有题目
+        let selectedQuestions = []; // 随机选出的5个题目
+        let currentQuestionIndex = 0;
+        let selectedOption = null;
+        let score = 0;
+        
+        // 从数组中随机选择n个元素
+        function getRandomElements(array, n) {
+            const shuffled = array.slice();
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled.slice(0, n);
+        }
+        
+        // 加载问题数据
+        async function loadQuestionData() {
+            try {
+                console.log('开始加载题目数据...');
+                
+                // 使用嵌入式题目
+                if (typeof embeddedQuestions !== 'undefined' && embeddedQuestions.length > 0) {
+                    console.log('使用嵌入式题目数据，题目数量:', embeddedQuestions.length);
+                    allQuestions = embeddedQuestions;
+                    selectedQuestions = getRandomElements(allQuestions, 5);
+                    console.log('已随机选择5个题目');
+                    loadQuestion();
+                    return;
+                }
+                
+                // 如果嵌入式题目不存在或为空，使用备用题目
+                throw new Error('嵌入式题目不存在或为空');
+                
+            } catch (error) {
+                console.error('加载题目失败:', error);
+                document.getElementById('question-text').textContent = '加载题目失败，使用备用题目...';
+                
+                // 使用备用题目
+                console.log('使用备用题目数据...');
+                allQuestions = [
+                    {
+                        id: 1,
+                        question: "青秀区是南宁市的哪个方位?",
+                        options: [
+                            { text: "东南方", isCorrect: true, explanation: "" },
+                            { text: "西南方", isCorrect: false, explanation: "青秀区位于南宁市的东南方，不是西南方" },
+                            { text: "东北方", isCorrect: false, explanation: "青秀区位于南宁市的东南方，不是东北方" },
+                            { text: "西北方", isCorrect: false, explanation: "青秀区位于南宁市的东南方，不是西北方" }
+                        ]
+                    },
+                    {
+                        id: 2,
+                        question: "青秀区的标志性建筑是什么?",
+                        options: [
+                            { text: "民歌湖", isCorrect: false, explanation: "青秀区的标志性建筑是青秀山，而非民歌湖" },
+                            { text: "南湖公园", isCorrect: false, explanation: "青秀区的标志性建筑是青秀山，而非南湖公园" },
+                            { text: "青秀山", isCorrect: true, explanation: "" },
+                            { text: "五象湖", isCorrect: false, explanation: "青秀区的标志性建筑是青秀山，而非五象湖" }
+                        ]
+                    },
+                    {
+                        id: 3,
+                        question: "青秀区的区花是什么?",
+                        options: [
+                            { text: "木棉花", isCorrect: false, explanation: "青秀区的区花是荷花，不是木棉花" },
+                            { text: "荷花", isCorrect: true, explanation: "" },
+                            { text: "玉兰花", isCorrect: false, explanation: "青秀区的区花是荷花，不是玉兰花" },
+                            { text: "紫荆花", isCorrect: false, explanation: "青秀区的区花是荷花，不是紫荆花" }
+                        ]
+                    },
+                    {
+                        id: 4,
+                        question: "青秀区有哪个著名的山?",
+                        options: [
+                            { text: "青秀山", isCorrect: true, explanation: "" },
+                            { text: "凤凰山", isCorrect: false, explanation: "青秀区有著名的青秀山，不是凤凰山" },
+                            { text: "大明山", isCorrect: false, explanation: "青秀区有著名的青秀山，不是大明山" },
+                            { text: "龙虎山", isCorrect: false, explanation: "青秀区有著名的青秀山，不是龙虎山" }
+                        ]
+                    },
+                    {
+                        id: 5,
+                        question: "青秀区是否是南宁市的中心城区?",
+                        options: [
+                            { text: "是", isCorrect: true, explanation: "" },
+                            { text: "否", isCorrect: false, explanation: "青秀区是南宁市的中心城区之一" },
+                            { text: "部分是", isCorrect: false, explanation: "青秀区整体被认为是南宁市的中心城区" },
+                            { text: "不确定", isCorrect: false, explanation: "青秀区确实是南宁市的中心城区" }
+                        ]
+                    }
+                ];
+                
+                selectedQuestions = allQuestions;
+                console.log('已加载备用题目，继续答题');
+                setTimeout(loadQuestion, 1000); // 延迟一秒加载第一个问题
+            }
+        }
+        
+        // 加载问题
+        function loadQuestion() {
+            const question = selectedQuestions[currentQuestionIndex];
+            document.getElementById('question-number').textContent = `问题 ${currentQuestionIndex + 1}/${selectedQuestions.length}`;
+            document.getElementById('question-text').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const letter = String.fromCharCode(65 + index); // A, B, C, D
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.setAttribute('data-value', letter);
+                optionElement.setAttribute('data-correct', option.isCorrect);
+                optionElement.onclick = function() { selectOption(this); };
+                
+                optionElement.innerHTML = `
+                    <div class="option-letter">${letter}</div>
+                    <div class="option-text">${option.text}</div>
+                `;
+                
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            // 更新进度条
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.style.width = `${(currentQuestionIndex / selectedQuestions.length) * 100}%`;
+            
+            // 重置选择
+            selectedOption = null;
+            document.getElementById('info-text').textContent = '请选择一个选项';
+        }
+        
+        // 选择选项
+        function selectOption(element) {
+            // 移除之前的选择
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => option.classList.remove('selected'));
+            
+            // 添加新的选择
+            element.classList.add('selected');
+            selectedOption = element.getAttribute('data-value');
+            
+            document.getElementById('info-text').textContent = `已选择选项 ${selectedOption}`;
+        }
+        
+        // 提交答案
+        function submitAnswer() {
+            if (selectedOption === null) {
+                alert('请先选择一个选项');
+                return;
+            }
+            
+            const selectedElement = document.querySelector('.option.selected');
+            const isCorrect = selectedElement.getAttribute('data-correct') === 'true';
+            
+            if (isCorrect) {
+                // 回答正确，继续答题
+                score++;
+                currentQuestionIndex++;
+                
+                if (currentQuestionIndex < selectedQuestions.length) {
+                    loadQuestion();
+                } else {
+                    // 所有问题回答完毕且全部正确，跳转到成功页面
+                    localStorage.setItem('visaScore', score.toString());
+                    localStorage.setItem('visaTotalQuestions', selectedQuestions.length.toString());
+                    
+                    console.log("答题完成，全部回答正确！");
+                    console.log("成功通过，准备跳转到success.html");
+                    
+                    setTimeout(function() {
+                        window.location.replace('./success.html');
+                    }, 500);
+                }
+            } else {
+                // 回答错误，直接跳转到失败页面
+                const currentQuestion = selectedQuestions[currentQuestionIndex];
+                const selectedOptionIndex = Array.from(document.querySelectorAll('.option')).indexOf(selectedElement);
+                const errorExplanation = currentQuestion.options[selectedOptionIndex].explanation;
+                
+                // 将错误原因存入localStorage
+                localStorage.setItem('visaRejectionReason', errorExplanation);
+                
+                console.log("回答错误，准备跳转到fail.html");
+                console.log("拒绝原因:", errorExplanation);
+                
+                setTimeout(function() {
+                    window.location.replace('./fail.html');
+                }, 500);
+            }
+        }
+        
+        // 初始化
+        window.onload = function() {
+            // 加载问题数据
+            loadQuestionData();
+            
+            // 注册 Service Worker
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            }
+            
+            // 配置微信分享
+            if (typeof configWechat === 'function') {
+                configWechat({
+                    title: '青秀区签证 - 答题',
+                    desc: '完成答题获取您的专属签证',
+                    imgUrl: './images/Background_nanning.png'
+                });
+            }
+        };
+    </script>
+</body>
+</html> 

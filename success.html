@@ -68,25 +68,8 @@
             align-items: center;
             justify-content: flex-start;
             padding: 20px;
-            padding-top: 60px;
+            padding-top: 20px;
             position: relative;
-        }
-        
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .success-icon i {
-            font-size: 40px;
-            color: #43cea2;
         }
         
         .success-title {
@@ -95,6 +78,7 @@
             font-weight: bold;
             margin-bottom: 10px;
             text-align: center;
+            margin-top: 10px;
         }
         
         .success-message {
@@ -211,8 +195,11 @@
             color: rgba(255, 255, 255, 0.8);
             font-size: 14px;
             line-height: 1.5;
-            width: 100%;
-            padding-right: 80px; /* 为右侧二维码留出空间 */
+            width: calc(100% - 100px); /* 减去右侧二维码宽度 */
+            left: 0;
+            padding: 0 50px 0 0; /* 右侧留出空间给二维码 */
+            margin: 0 auto;
+            right: 0;
         }
         
         .huizhan-icon {
@@ -263,10 +250,6 @@
     <div class="confetti-container" id="confetti-container"></div>
     
     <div class="main-container">
-        <div class="success-icon">
-            <i class="fas fa-check"></i>
-        </div>
-        
         <h1 class="success-title">恭喜，签证申请成功！</h1>
         <p class="success-message">您已成功通过所有问题，获得青秀区专属签证</p>
         
@@ -289,7 +272,7 @@
                 </div>
                 <div class="visa-info-row">
                     <div class="visa-info-label">有效期至</div>
-                    <div class="visa-info-value">90天</div>
+                    <div class="visa-info-value" id="visa-expiry">90天</div>
                 </div>
                 <div class="visa-info-row">
                     <div class="visa-info-label">签证类型</div>
@@ -311,7 +294,7 @@
         
         <img src="./images/huizhan.png" alt="展会图标" class="huizhan-icon">
         
-        <div class="footer-text">
+        <div class="footer-text" style="width: 100%; left: 0; text-align: center; padding: 0;">
             西南曼哈顿·南宁青秀城市中心欢迎您<br>
             赛博青秀·非官方·仅供娱乐
         </div>
@@ -370,6 +353,11 @@
                     
                 }, Math.random() * 2000); // 在2秒内随机时间创建
             }
+            
+            // 6秒后再次触发礼花效果
+            setTimeout(() => {
+                createConfetti();
+            }, 12000); // 2秒的创建时间 + 6秒等待
         }
 
         // 初始化签证信息
@@ -382,6 +370,12 @@
             const now = new Date();
             const dateStr = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
             document.getElementById('visa-date').textContent = dateStr;
+            
+            // 设置有效期 - 当前日期后3天
+            const expiryDate = new Date(now);
+            expiryDate.setDate(now.getDate() + 3);
+            const expiryStr = `${expiryDate.getFullYear()}-${(expiryDate.getMonth() + 1).toString().padStart(2, '0')}-${expiryDate.getDate().toString().padStart(2, '0')}`;
+            document.getElementById('visa-expiry').textContent = expiryStr;
             
             // 生成随机签证号
             const randomNum = Math.floor(100000 + Math.random() * 900000);

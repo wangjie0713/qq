@@ -28,26 +28,6 @@
             overflow: hidden;
         }
         
-        .ios-status-bar {
-            height: 44px;
-            background-color: rgba(0, 0, 0, 0.4);
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 15px;
-            font-size: 14px;
-        }
-        
-        .status-bar-time {
-            font-weight: bold;
-        }
-        
-        .status-bar-icons {
-            display: flex;
-            gap: 5px;
-        }
-        
         .main-container {
             flex: 1;
             display: flex;
@@ -228,14 +208,6 @@
     </style>
 </head>
 <body>
-    <div class="ios-status-bar">
-        <div class="status-bar-time">20:47</div>
-        <div class="status-bar-icons">
-            <span>5G</span>
-            <span>100%</span>
-        </div>
-    </div>
-    
     <div class="main-container">
         <div class="fail-icon">
             <i class="fas fa-times"></i>
@@ -265,18 +237,6 @@
     </div>
     
     <script>
-        // 更新状态栏时间
-        function updateTime() {
-            const now = new Date();
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            document.querySelector('.status-bar-time').textContent = `${hours}:${minutes}`;
-        }
-        
-        // 初始化时间并每分钟更新
-        updateTime();
-        setInterval(updateTime, 60000);
-        
         // 重新测试
         function retryTest() {
             // 重置得分和拒绝原因
